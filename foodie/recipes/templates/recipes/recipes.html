@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load django_bootstrap5%}
+{% block page_header %}
+     <h6>Recipes</h6>
+{% block content %} 
+     <div>
+          
+               {% for recipe in  recipes %}
+               <div class="card mb-3">
+                    <h5 class="card-header"> 
+                         {{ recipe.name}} 
+                    <i>Added:</i>
+                    </h5>
+               
+                <div class="card-body">   
+                    <p>Description:</p>
+                   {{recipe.description}}
+                <div class="row align-items-center mt-3">
+                    <div class="col">
+                       <small><a href="{% url "recipes:recipe_details" recipe.id %}">View recipe details</a></small>
+                    </div>
+            
+       
+               </div></div>
+          </div>       
+        {% endfor %} 
+     </div> 
+{% endblock content %}
+{% endblock page_header %} 

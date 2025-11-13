@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+     {% if recipes %}
+        <ul>
+            {% for recipe in recipes %} <li>
+              
+                    <h5> {{ recipe.name}} </h5>
+
+                    <a href="{% url "sandbox:recipe_detail" recipe.id%}">{{recipe.name}}</a></li>
+               
+            {% endfor %} 
+        </ul>
+    {% endif %}
+{% endblock content %}
